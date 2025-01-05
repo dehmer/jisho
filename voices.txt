@@ -1,0 +1,15 @@
+Anna                de_DE    # Hallo, ich heiße Anna und ich bin eine deutsche Stimme.
+Anna (Enhanced)     de_DE    # Hallo, ich heiße Anna und ich bin eine deutsche Stimme.
+Markus (Enhanced)   de_DE    # Hallo, ich heiße Markus und ich bin eine deutsche Stimme.
+Petra (Premium)     de_DE    # Hallo, ich heiße Petra und ich bin eine deutsche Stimme.
+Viktor (Enhanced)   de_DE    # Hallo, ich heiße Viktor und ich bin eine deutsche Stimme.
+Yannick (Enhanced)  de_DE    # Hallo, ich heiße Yannick und ich bin eine deutsche Stimme.
+Kyoko               ja_JP    # こんにちは、私の名前はきょうこです。日本語の音声をお届けします。
+Kyoko (Enhanced)    ja_JP    # こんにちは、私の名前はきょうこです。日本語の音声をお届けします。
+Otoya (Enhanced)    ja_JP    # こんにちは、私の名前はOtoyaです。日本語の音声をお届けします。
+
+
+say -v "Kyoko (Enhanced)" "[[emph +]]飲む[[emph -]]。[[slnc 900]]" -o 飲む-001
+say -v "Petra (Premium)" "trinken [[slnc 900]]" -o 飲む-002
+say -v "Kyoko (Enhanced)" "飲んだ。 [[slnc 600]] 飲んで。 [[slnc 600]] 飲まない。 [[slnc 600]] 飲まなかった。 [[slnc 600]] 飲みます。 [[slnc 600]] 飲みました。 [[slnc 600]] 飲みません。 [[slnc 600]] 飲みませんでした。 [[slnc 600]]" -o 飲む-003
+say -v "Kyoko (Enhanced)" "[[emph +]]始まる[[emph -]]。 [[slnc 800]] 始まります。 [[slnc 800]] 始まりません。 [[slnc 800]] 始まりました。 [[slnc 800]] 始まりませんでした。 [[slnc 800]] 始まって。 [[slnc 800]]"

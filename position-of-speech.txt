@@ -1,0 +1,72 @@
+[
+  [
+    "名詞", // めいし - Substantiv
+    "助詞", // じょし - Partikel, Postposition
+    "連体詞", // れんたいし - Adnomen
+    "動詞", // どうし - Verb
+    "助動詞", // じょどうし - Hilfsverb
+    "記号", // きごう - Zeichen, Symbol
+    "接頭詞", // せっとうし - Präfix
+    "感動詞", // かんどうし - Interjektion
+    "副詞", // ふくし - Adverb
+    "形容詞", // けいようし - Adjektiv
+    "接続詞", //　せつぞくし - Konjunktion
+    "フィラー" // Füllwort
+  ],
+  [
+    "代名詞", // だいめいし - Pronomen
+    "格助詞", // かくじょし - Kasuspartikel
+    "非自立", // ひじりつ - Unselbständigkeit, Abhängigkeit
+    "自立", // じりつ - Selbständigkeit, Unabhängigkeit
+    "接続助詞", // せつぞくじょし - Konjunktionalpartikel
+    "終助詞", // しゅうじょし - Satzendepartikel
+    "句点", // くてん - japanischer Punkt (am Satzende)
+    "副助詞／並立助詞／終助詞", // ふくじょし/へいりつじょし/しゅうじょし - Adverbialpartikel / Aufzählungs-/Koordinationspartikel / Satzendepartikel
+    "係助詞", // けいじょし - Themapartikel
+    "一般", // いっぱん - Gewöhnlichkeit, Normalität
+    "副詞可能", Adverb der Möglichkeit
+    "数", // かず - Numerus
+    "接尾", // せつび - Suffix
+    "読点", // とうてん - japanisches Komma, 、
+    "連体化", // Attributivform
+    "サ変接続", // unregelmäßige Flexion der sa-Reihe (Verbindung)
+    "名詞接続", // Substantiv (Verbindung)
+    "括弧開", // Klammer (auf)
+    "固有名詞", // Eigenname
+    "括弧閉", // Klammer (zu)
+    "助詞類接続", // Partikel
+    "副詞化", // Adverbierung
+    "副助詞", // Adverbialpartikel
+    "形容動詞語幹", // (Wortstamm) adjektivisches Nomen, Quasi-Adjektiv, na-Adjektiv
+    "ナイ形容詞語幹", // Nicht-Existenz von Adjektiv Wortstamm
+    "並立助詞", // Aufzählungspartikel
+    "数接続", // Anzahl/Menge (Verbindung)
+    "空白", // Leerzeichen
+    "動詞非自立的", // abhängiges Verb
+    "アルファベット", // Alphabet, ABC
+    "特殊", // Eigentümlichkeit (Antonym zu 一般)
+    "接続詞的", // Konjunktion
+    "動詞接続", // Verb (Verbindung)
+    "形容詞接続" // Adjektiv (Verbindung)
+  ],
+  [
+    "一般", // いっぱん - Gewöhnlichkeit, Normalität
+    "助数詞", // Zählwört
+    "組織", // Struktur, Gliederung
+    "引用", // Anführung, Zitieren
+    "助動詞語幹", // Hilfsverb (Wortstamm)
+    "地域", // Gegend, Region
+    "形容動詞語幹", // adjektivisches Normen (Wortstamm)
+    "副詞可能", Adverb der Möglichkeit
+    "連語", // Zusammensetzung
+    "特殊", // Eigentümlichkeit (Antonym zu 一般)
+    "人名", // じんめい - Personenname
+    "サ変接続" // unregelmäßige Flexion der sa-Reihe (Verbindung)
+  ],
+  [
+    "国", // Land
+    "名", // Name
+    "一般", // いっぱん - Gewöhnlichkeit, Normalität
+    "姓" // せい - Familienname
+  ]
+]
