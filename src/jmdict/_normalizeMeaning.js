@@ -17,21 +17,28 @@ module.exports = entry => {
 
   const normalizeGlossary = gloss => fns[typeof gloss](gloss)
 
-  // <!ELEMENT sense (stagk*, stagr*, pos*, xref*, ant*, field*, misc*, s_inf*, lsource*, dial*, gloss*)>
-  // NOTE: skipping `lsource` for now
-  // NOTE: skipping `dial` for now
+  // sense (stagk*, stagr*, pos*, xref*, ant*, field*, misc*, s_inf*, lsource*, dial*, gloss*)
+  // Note: skipping `lsource` for now
+  // Note: skipping `dial` for now
+
   const normalizeSense = sense => {
     const meaning = {}
-    if (sense.stagk) meaning.stagk = asArray(sense.stagk)
-    if (sense.stagr) meaning.stagr = asArray(sense.stagr)
-    if (sense.xref) meaning.synonym = asArray(sense.xref)
-    if (sense.ant) meaning.antonym = asArray(sense.ant)
-    if (sense.s_inf) meaning.remark = sense.s_inf
 
     const tags = asTags(sense.pos, 'pos')
       .concat(asTags(sense.misc, 'misc'))
       .concat(asTags(sense.dial, 'dial'))
       .concat(asTags(sense.field, 'field'))
+
+    const reduceArray = (prefix, xs, acc) => asArray(xs).reduce(((acc, x) => {
+      acc.push(`${prefix}:${x}`)
+      return acc
+    }), acc)
+
+    if (sense.stagk) reduceArray('stagk', sense.stagk, tags)
+    if (sense.stagr) reduceArray('stagr', sense.stagr, tags)
+    if (sense.xref) reduceArray('xref', sense.xref, tags)
+    if (sense.ant) reduceArray('ant', sense.ant, tags)
+    if (sense.s_inf) meaning.remark = sense.s_inf
 
     return (sense.gloss ? asArray(sense.gloss) : [])
       .reduce((acc, element) => {

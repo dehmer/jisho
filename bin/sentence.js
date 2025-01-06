@@ -84,5 +84,5 @@ const files = {
 }
 
 Object.entries(files).forEach(([filename, fn]) => {
-  fs.writeFileSync(`pg/data_${filename}.sql`, fn())
+  fs.writeFileSync(`pg/data/${filename}.sql`, fn())
 })

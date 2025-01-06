@@ -4,11 +4,13 @@ const { extractTags } = require('./tag')
 module.exports = entry => {
   if (!entry.k_ele) return entry
 
-  // <!ELEMENT k_ele (keb, ke_inf*, ke_pri*)>
+  // k_ele (keb, ke_inf*, ke_pri*)
   const { k_ele, ...rest } = entry
 
   const normalize = kanji => {
     const key = kanji.keb
+
+    // Flatten ke_inf and ke_pri into array of prefixed values.
     const value = extractTags([
       ['ke_inf', 'inf'],
       ['ke_pri', 'rank']
@@ -17,12 +19,9 @@ module.exports = entry => {
     return [key, value]
   }
 
-  return {
-    ...rest,
-    kanji: asArray(entry.k_ele).reduce((acc, element) => {
-      const [key, value] = normalize(element)
-      acc[key] = value
-      return acc
-    }, {})
-  }
+  return asArray(entry.k_ele).reduce((acc, element) => {
+    const [key, value] = normalize(element)
+    acc[`kanji:${key}`] = value
+    return acc
+  }, rest)
 }

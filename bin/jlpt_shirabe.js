@@ -24,4 +24,4 @@ const content = [
   ''
 ].join('\n')
 
-writeFileSync(`pg/data_jlpt_shirabe.sql`, content)
+writeFileSync(`pg/data/jlpt_shirabe.sql`, content)

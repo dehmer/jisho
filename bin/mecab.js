@@ -30,4 +30,4 @@ const content =
     ''
   ].join('\n')
 
-writeFileSync('pg/data_token.sql', content)
+writeFileSync('pg/data/token.sql', content)
