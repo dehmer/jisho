@@ -3,6 +3,8 @@ VERSION = $(shell cat .version)
 SCRIPT = $(NAME)--$(VERSION).sql
 
 $(SCRIPT): \
+	pg/table/bookmark.sql \
+	pg/table/entity.sql \
 	pg/table/kanji.sql \
 	pg/table/kanji_tag.sql \
 	pg/table/kanji_meaning.sql \
@@ -15,10 +17,16 @@ $(SCRIPT): \
 	pg/table/headword_tag.sql \
 	pg/table/meaning.sql \
 	pg/table/meaning_tag.sql \
+	pg/function/fn_kanji.sql \
+	pg/function/fn_literal.sql \
+	pg/function/fn_seq_no.sql \
 	pg/data/kanji.sql \
 	pg/data/kanji_tag.sql \
 	pg/kanji/tag_joyjo.sql \
 	pg/kanji/tag_jinmeiyo.sql \
+	pg/view/headword_common.sql \
+	pg/view/headword_kanji.sql \
+	pg/view/headword_reading.sql \
 	pg/data/jlpt_shirabe.sql \
 	pg/data/kanji_meaning.sql \
 	pg/data/radical.sql \

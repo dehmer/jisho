@@ -3,9 +3,9 @@
 --
 --
 CREATE TABLE headword_tag (
-  sequence int NOT NULL,
+  seq_no int NOT NULL,
   type text NOT NULL,
-  headword text NOT NULL,
+  headword_txt text NOT NULL,
   key text,
   value text
 );

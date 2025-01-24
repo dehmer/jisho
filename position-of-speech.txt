@@ -37,7 +37,7 @@
     "助詞類接続", // Partikel
     "副詞化", // Adverbierung
     "副助詞", // Adverbialpartikel
-    "形容動詞語幹", // (Wortstamm) adjektivisches Nomen, Quasi-Adjektiv, na-Adjektiv
+    "形容動詞 語幹", // (Wortstamm) adjektivisches Nomen, Quasi-Adjektiv, na-Adjektiv
     "ナイ形容詞語幹", // Nicht-Existenz von Adjektiv Wortstamm
     "並立助詞", // Aufzählungspartikel
     "数接続", // Anzahl/Menge (Verbindung)

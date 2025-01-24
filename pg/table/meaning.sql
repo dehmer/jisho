@@ -3,8 +3,8 @@
 --
 --
 CREATE TABLE meaning (
-  sequence int NOT NULL,
+  seq_no int NOT NULL,
   idx int NOT NULL,
   language text NOT NULL,
-  value text NOT NULL
+  meaning_txt text NOT NULL
 );

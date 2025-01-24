@@ -1,3 +1,5 @@
+say -v \? | grep ja
+
 Anna                de_DE    # Hallo, ich heiße Anna und ich bin eine deutsche Stimme.
 Anna (Enhanced)     de_DE    # Hallo, ich heiße Anna und ich bin eine deutsche Stimme.
 Markus (Enhanced)   de_DE    # Hallo, ich heiße Markus und ich bin eine deutsche Stimme.
