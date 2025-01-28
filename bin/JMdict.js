@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { readFileSync, writeFileSync } = require('fs')
 const { XMLParser } = require('fast-xml-parser')
+const R = require('ramda')
 const normalize = require('../src/jmdict/normalize')
 const { join } = require('../src/string')
 
@@ -16,41 +17,29 @@ const parser = new XMLParser(options)
 const raw = parser.parse(xml).JMdict.entry
 const entries = raw.map(normalize)
 
+
 const data = entries.reduce((acc, { sequence, ...entry}) => {
-  return Object.entries(entry).reduce((acc, [key, value]) => {
-    const { headword, headword_tag, meaning, meaning_tag} = acc
-    const [type, ...xs] = key.split(':')
-
-    switch (type) {
-      case 'kanji':
-        headword.push([sequence, type, xs[0], '\\N'])
-        value.forEach(tag => headword_tag.push([sequence, type, xs[0], ...tag.split(':')]))
-        break
-      case 'reading':
-        if (xs.length === 1) {
-          headword.push([sequence, type, ...xs, '\\N'])
-          value.forEach(tag => headword_tag.push([sequence, type, xs[0], ...tag.split(':')]))
-        }
-        else {
-          xs[0].split(',').forEach(xref => headword.push([sequence, type, xs[1], xref]))
-          value.forEach(tag => headword_tag.push([sequence, type, xs[1], ...tag.split(':')]))
-        }
-        break
-      case 'meaning':
-        value.forEach(({ tags, remark, ...meanings}, idx) => {
-          tags.forEach(tag => meaning_tag.push([sequence, idx, ...tag.split(':')]))
-          Object.entries(meanings).forEach(([key, tags]) => {
-            const [_, lang, text] = key.match(/^(\w{3}):(.*)$/)
-            if (text.includes('\\')) return
-            meaning.push([sequence, idx, lang, text])
-          })
-        })
-        break
-    }
-
+  entry.headword.reduce((acc, headword, idx) => {
+    if (headword.length === 3) acc.headword.push([sequence, idx, ...R.take(2, headword), '\\N'])
+    else acc.headword.push([sequence, idx, ...R.take(3, headword)])
+    R.last(headword).forEach(tag => acc.headword_tag.push([sequence, idx, ...tag.split(':')]))
     return acc
   }, acc)
-}, { headword: [], headword_tag: [], meaning: [], meaning_tag: []})
+
+  entry.meaning.reduce((acc, meaning, idx) => {
+    const { tags, remark, ...rest } = meaning
+    tags.forEach(tag => acc.meaning_tag.push([sequence, idx, ...tag.split(':')]))
+    Object.entries(rest).forEach(([key /*, tags */]) => {
+      const [_, lang, text] = key.match(/^(\w{3}):(.*)$/)
+      if (text.includes('\\')) return
+      acc.meaning.push([sequence, idx, lang, text])
+    })
+    return acc
+  }, acc)
+
+  return acc
+}, { headword: [], headword_tag: [], meaning: [], meaning_tag: [] })
+
 
 const headword = () => [
   '',

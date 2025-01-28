@@ -17,6 +17,7 @@ $(SCRIPT): \
 	pg/table/headword_tag.sql \
 	pg/table/meaning.sql \
 	pg/table/meaning_tag.sql \
+	pg/table/krad.sql \
 	pg/function/fn_kanji.sql \
 	pg/function/fn_literal.sql \
 	pg/function/fn_seq_no.sql \
@@ -37,7 +38,9 @@ $(SCRIPT): \
 	pg/data/headword.sql \
 	pg/data/headword_tag.sql \
 	pg/data/meaning.sql \
-	pg/data/meaning_tag.sql
+	pg/data/meaning_tag.sql \
+	pg/data/krad.sql \
+	pg/table/sentence_rank.sql
 	cat $^ > $@
 
 pg/data/kanji.sql \
@@ -61,6 +64,9 @@ pg/data/sentence.sql pg/data/translation.sql:
 
 pg/data/token.sql:
 	bin/mecab.js
+
+pg/data/krad.sql:
+	bin/krad.js
 
 .PHONY: clean
 clean:

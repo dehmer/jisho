@@ -9,10 +9,10 @@ const client = new Client()
 
 const dirname = '/Users/dehmer/Public/Data/jp-resources/vocabulary'
 
-const lines = async file => {
+const lines = file => {
 	const name = path.basename(file, '.tsv')
 	const [key, value] = name.split('#')
-	const entries = await readFileSync(file, 'utf8')
+	const entries = readFileSync(file, 'utf8')
 	const lines = entries
 		.split(/\r?\n/)
 		.filter(x => x.trim().length)
@@ -32,7 +32,7 @@ const insertBookmark = "INSERT INTO bookmark VALUES ($1, $2, $3, $4, $5)"
 
 	const files = await glob(`${dirname}/*.tsv`)
 	await files.reduce(async (acc, file) => {
-		return (await lines(file)).reduce(async (acc, [key, value, kanji, reading]) => {
+		return lines(file).reduce(async (acc, [key, value, kanji, reading]) => {
 			const query = {
 				text: kanji ? selectKanjiAndReading : selectReading,
 				values: kanji ? [kanji, reading] : [reading]

@@ -5,8 +5,8 @@ const normalizeMeaning = require('./_normalizeMeaning')
 
 const normalizations = [
 	normalizeSequence,
-	normalizeKanji,
 	normalizeReading,
+	normalizeKanji,
 	normalizeMeaning
 ]
 

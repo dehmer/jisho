@@ -4,8 +4,7 @@ const { spawn, exec } = require('node:child_process')
 const { createHash } = require('node:crypto')
 const path = require('node:path')
 const { glob } = require('glob')
-
-const dirname = '/Users/dehmer/Public/Data/jp-resources/audio'
+const minimist = require('minimist')
 
 process.stdin.setRawMode(true)
 process.stdin.resume()
@@ -38,8 +37,19 @@ const removecomment = s => {
 const sentences = readFileSync('./reader-sentences', 'utf8')
   .split(/\r?\n/)
   .filter(s => s.trim().length)
+  .filter(s => !s.startsWith('#'))
   .map(removecomment)
   .map(s => s.trim())
+
+if (sentences.length === 0) process.exit()
+
+let count = 0
+const dirname = '/Users/dehmer/Public/Data/jp-resources/audio'
+const args = minimist(process.argv.slice(2))
+const limit = args.n
+  ? Math.min(args.n, sentences.length)
+  : sentences.length
+
 
 ;(async () => {
   const audiofiles = await glob(`${dirname}/*.*`)
@@ -56,14 +66,7 @@ const sentences = readFileSync('./reader-sentences', 'utf8')
     const sentence = xs[idx]
     const hash = createHash('sha256').update(sentence).digest('base64url')
 
-    console.log(
-      '[',
-      1 + sentences.length - xs.length,
-      '/', sentences.length,
-      ']',
-      sentence
-    )
-
+    console.log('[', count + 1, '/', limit, ']', sentence)
     await (hashes[hash] ? play(hashes[hash]) : say(sentence))
 
     switch (await key()) {
@@ -72,7 +75,8 @@ const sentences = readFileSync('./reader-sentences', 'utf8')
       case 'r': loop([xs, idx]); break
       default:
         xs.splice(idx, 1)
-        if (xs.length === 0) process.exit()
+        count += 1
+        if (count === limit) process.exit()
         loop([[...xs], null])
     }
   }

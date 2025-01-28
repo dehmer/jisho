@@ -4,6 +4,6 @@
 --
 CREATE TABLE sentence (
   lang text,
-  id int,
+  sentence_id int,
   value text
 );
