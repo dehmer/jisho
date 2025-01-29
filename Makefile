@@ -3,7 +3,6 @@ VERSION = $(shell cat .version)
 SCRIPT = $(NAME)--$(VERSION).sql
 
 $(SCRIPT): \
-	pg/table/bookmark.sql \
 	pg/table/entity.sql \
 	pg/table/kanji.sql \
 	pg/table/kanji_tag.sql \
@@ -18,9 +17,8 @@ $(SCRIPT): \
 	pg/table/meaning.sql \
 	pg/table/meaning_tag.sql \
 	pg/table/krad.sql \
+	pg/table/deck.sql \
 	pg/function/fn_kanji.sql \
-	pg/function/fn_literal.sql \
-	pg/function/fn_seq_no.sql \
 	pg/data/kanji.sql \
 	pg/data/kanji_tag.sql \
 	pg/kanji/tag_joyjo.sql \
@@ -40,7 +38,11 @@ $(SCRIPT): \
 	pg/data/meaning.sql \
 	pg/data/meaning_tag.sql \
 	pg/data/krad.sql \
-	pg/table/sentence_rank.sql
+	pg/table/sentence_rank.sql \
+	pg/data/deck.sql \
+	pg/table/bookmark.sql \
+	pg/view/headword_bookmark.sql \
+	pg/view/kanji_bookmark.sql
 	cat $^ > $@
 
 pg/data/kanji.sql \
@@ -67,6 +69,9 @@ pg/data/token.sql:
 
 pg/data/krad.sql:
 	bin/krad.js
+
+pg/data/deck.sql:
+	bin/deck.js
 
 .PHONY: clean
 clean:
