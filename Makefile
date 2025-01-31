@@ -5,6 +5,8 @@ SCRIPT = $(NAME)--$(VERSION).sql
 $(SCRIPT): \
 	pg/table/entity.sql \
 	pg/table/kanji.sql \
+	pg/view/kanji_joyo.sql \
+	pg/view/kanji_yomi.sql \
 	pg/table/kanji_tag.sql \
 	pg/table/kanji_meaning.sql \
 	pg/table/radical.sql \
