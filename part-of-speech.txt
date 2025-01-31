@@ -1,0 +1,90 @@
+*
+その他	überdies, darüber hinaus, weiter, außerdem, andere, zusätzliche, weitere, die anderen, darüber hinaus, außerdem, anderer
+アルファベット
+ガル接続
+サ変接続
+ナイ形容詞語幹
+フィラー
+一段	eine Sprosse, ein Abschnitt, (z. B. Budō) erster Grad, erster Dan, eine Verbstufe (Abk.), noch mehr, weiter, einstufig, einfach, primär, eine Stufe, besonders, insbesondere, noch mehr, ziemlich, (Längenmaß) ein Tan, Länge von etwa zwei Jō und sechs oder acht Shaku, Stofflänge, die für die Kleidung einer Person aussreicht (um 10 m), (Flächenmaß) ein Tan, zehn Se (etwa 992 m²), beträchtlich, um so mehr als …
+一般	Normalität, allgemein, gewöhnlich, üblich, gebräuchlich, Gewöhnlichkeit, Allgemeinheit, Üblichkeit, Gleichheit, Unterschiedslosigkeit
+上二
+下二
+不変化型
+並立助詞	Aufzählungspartikel, Heiritsujoshi
+五段	fünfte Stufe, fünfter Dan, Abkürzung für konsonantisch endende japanische Verben (fünfstufige Verben), fünfter Grad
+人名	Anthroponym, Name, Personenname
+代名詞	typischer Vertreter, Beiname, Pronomen, Fürwort, klassisches Beispiel, Synonym
+仮定形	unselbständige Anschlussform, die zur Bildung des Konditional benutzt wird (zum Anschluss des Jōshi ba)
+仮定縮約１
+仮定縮約２
+体言接続
+体言接続特殊
+体言接続特殊２
+係助詞	Themapartikel (wa, mo, koso, sae, demo, shika usw.), Kakari・joshi, Kakari・joshi (Thema-Partikel; wa, mo, koso, soe, demo, shika)
+副助詞	Fuku・joshi, Adverbialpartikel (Partikel, die adverbial modifiziert)
+副助詞／並立助詞／終助詞
+副詞	Umstandswort, Adverb
+副詞化
+副詞可能
+助動詞	Jodōshi (flektierbare Wortart, wird an Flexionsformen der Yōgen angefügt), Hilfszeitwort, Hilfsverb
+助動詞語幹
+助数詞	Zählwort (Wort, das an Zahlen gehängt wird um klarer zu machen, was gezählt wird)
+助詞	Joshi, Postposition, Partikel (nicht flektierbar; stehen grundsätzlich am Ende von Satzgliedern od. Sätzen)
+助詞類接続
+動詞	Verbum, Verb, Zeitwort, Tätigkeitswort
+動詞接続
+動詞非自立的
+句点	Punkt, japanischer Punkt, kleiner Kreis als Punkt am Satzende (ein japan. Interpunktionszeichen)
+名	Name, Ruf, Ruhm, Geltung, Vorwand, jmds. Name, Titel, Bezeichnung, Benennung
+名詞	Substantiv, Nomen
+名詞接続
+命令ｅ
+命令ｉ
+命令ｒｏ
+命令ｙｏ
+四段
+固有名詞	Nomen proprium, Eigenname
+国	Staat, Provinz, Nationalität, Heimatnation, Heimat, Geburtsort, Land, Landschaft, Reich
+地域	Gegend, Bezirk, Bereich, Zone, Gebiet, Landstrich, Region, Raum, Land, ländliches Gebiet
+基本形	Stammform, Grundform
+基本形-促音便
+姓	gesellschaftlicher Rangtitel einer Familie, Familienname, Familienname
+引用	Zitieren, Zitatbeleg, anführen, Anführung, zitieren
+形容動詞語幹
+形容詞	Adjektiv, Adjektivum, Eigenschaftswort
+形容詞接続
+感動詞	Ausrufewort, Interjektion, Empfindungswort
+括弧閉
+括弧開
+接続助詞	Setsuzoku・joshi, Konjunktionalpartikel (Partikel, die die Beziehungen zw. Sätzen beschreiben)
+接続詞	Bindewort, Konjunktion
+接続詞的
+数	mehrmals, oft, Zahl, Anzahl, Nummer, Zahl, Schicksal, Bestimmung, Gesetz, öfters, häufig, wiederholt
+数接続
+文語	Schriftsprache, klassisches Japanisch
+文語基本形
+未然ウ接続
+未然ヌ接続
+未然レル接続
+未然形	Mizen・kei (unselbständige Verbanschlussform; dient dem Anschluss von Jodō・shi)
+未然特殊
+格助詞	Kakujoshi, kasusanzeigende Partikel, Kasuspartikel (gibt die syntakt. Beziehungen zw. den Taigen an)
+特殊	eigenartig, Eigenart, Eigentümlichkeit, individuell, ausgeprägt, charakteristisch, eigentümlich, speziell, besonders, spezifisch
+現代基本形
+空白	Vakuum, Weißraum, unbeschriebener Teil einer Seite, Lücke, Space, Leerstelle, Leerzeichen
+終助詞	Satzendepartikel (drücken Verbot, Bekräftigung, Frage, etc. aus), Shū・joshi
+組織	systematisch behandeln, in ein System bringen, systematisieren, etw. bilden, zusammensetzen, konstruieren, Gewebe, organisieren, formen, System, Gefüge, Organisation, Struktur, gliedern, Formation, Gliederung, Konstruktion, Zusammensetzung
+縮約	Kontraktion, Abkürzung, Schrumpfung
+自立	selbständig sein, Unabhängigkeit, sich unabhängig machen, Selbständigkeit, auf eigenen Füßen stehen, unabhängig sein
+記号	Zeichen, (franz.)signe (in der Linguistik Ferdinand de Saussures), Wahrzeichen, (insbes.)Notenschlüssel, Ideogramm, Emblem, Symbol, Zeichen
+読点	Komma, japanisches Komma (ein japan. Interpunktionszeichen)
+連体化
+連体詞	Adnomen, adnominales Attribut
+連用ゴザイ接続
+連用タ接続
+連用テ接続
+連用デ接続
+連用ニ接続
+連用形	Konjunktionalform (kann selbständig als Zwischenprädikat auftreten; dient dem Anschluss von Jodōshi), Renyōkei
+連語	Phrase, Kollokation, Zusammensetzung, Fügung, Kopula
+音便基本形

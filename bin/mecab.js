@@ -1,33 +1,28 @@
 #!/usr/bin/env node
-const { readFileSync, writeFileSync } = require('fs')
-const { analyzeSync } = require("@enjoyjs/node-mecab")
-const { split, join } = require('../src/string')
+const { readFileSync, createWriteStream } = require('node:fs')
+const { split } = require('../src/string')
+const mecab = require('../src/mecab')
 
 const filename = '/Users/dehmer/Public/Data/jp-resources/sentences/jpn-2023-11-11.tsv'
 const input = readFileSync(filename, 'utf8')
-const sentences = split('\n', input).map(split('\t'))
+const sentences = split('\n', input).filter(s => s.length).map(split('\t'))
 
-const analyze =
-  s =>
-    analyzeSync(s)
-    .split('\n')
-    .map(split('\t'))
-    .filter(([surface, feature]) => surface && feature)
-    .filter(([surface]) => surface !== 'EOS')
-    .map(([surface, feature]) => [surface, ...feature.split(',')])
+;(async () => {
+  const { analyze, dispose } = mecab()
+  const output = createWriteStream('pg/data/token.sql')
+  output.write('\\COPY token FROM STDIN\n')
 
+  await sentences.reduce(async (acc, [id, lang, surface]) => {
+    const output = await acc
+    const lines = await analyze(surface)
+    lines
+      .map(features => [lang, id, ...features])
+      .map(line => line.join('\t'))
+      .forEach(line => output.write(line + '\n'))
 
-const lines = sentences
-  .flatMap(([id, lang, surface]) => analyze(surface).map((xs, idx) => [lang, id, idx, ...xs]))
-  .map(xs => xs.length === 13 ? xs : [...xs, '\\N', '\\N'])
-  .map(join('\t'))
+    return acc
+  }, output)
 
-const content =
-  [
-    '\\COPY token FROM STDIN',
-    ...lines,
-    '\\.',
-    ''
-  ].join('\n')
-
-writeFileSync('pg/data/token.sql', content)
+  output.write('\\.\n')
+  dispose()
+})()
