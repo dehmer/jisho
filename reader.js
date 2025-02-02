@@ -6,6 +6,8 @@ const path = require('node:path')
 const { glob } = require('glob')
 const minimist = require('minimist')
 
+const dirname = '/Users/dehmer/Public/Data/jp-resources/audio'
+
 process.stdin.setRawMode(true)
 process.stdin.resume()
 process.stdin.setEncoding('utf8')
@@ -34,18 +36,21 @@ const removecomment = s => {
   return idx === -1 ? s : s.substring(0, idx)
 }
 
-const sentences = readFileSync('./reader-sentences', 'utf8')
-  .split(/\r?\n/)
-  .filter(s => s.trim().length)
-  .filter(s => !s.startsWith('#'))
-  .map(removecomment)
-  .map(s => s.trim())
+const args = minimist(process.argv.slice(2))
+
+const sentences =
+  args._.length
+    ? args._ // only read sentence(s) supplied as command line arguments.
+    : readFileSync('./reader-sentences', 'utf8')
+        .split(/\r?\n/)
+        .filter(s => s.trim().length)
+        .filter(s => !s.startsWith('#'))
+        .map(removecomment)
+        .map(s => s.trim())
 
 if (sentences.length === 0) process.exit()
 
 let count = 0
-const dirname = '/Users/dehmer/Public/Data/jp-resources/audio'
-const args = minimist(process.argv.slice(2))
 const limit = args.n
   ? Math.min(args.n, sentences.length)
   : sentences.length
