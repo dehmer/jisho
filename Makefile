@@ -44,7 +44,8 @@ $(SCRIPT): \
 	pg/data/deck.sql \
 	pg/table/bookmark.sql \
 	pg/view/headword_bookmark.sql \
-	pg/view/kanji_bookmark.sql
+	pg/view/kanji_bookmark.sql \
+	pg/post/headword_hidden.sql
 	cat $^ > $@
 
 pg/data/kanji.sql \

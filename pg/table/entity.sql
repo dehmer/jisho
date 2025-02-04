@@ -32,7 +32,7 @@ INSERT INTO entity VALUES
   ('pos', 'vn', 'irregular nu verb'),
   ('pos', 'vr', 'irregular ru verb, plain form ends with -ri'),
   ('pos', 'vs-s', 'suru verb - special class'),
-  ('inf', 'uk', 'word usually written using kana alone'),
+  ('misc', 'uk', 'word usually written using kana alone'),
   ('inf', 'ateji', 'ateji (phonetic) reading'),
   ('inf', 'gikun', 'gikun (meaning as reading) or jukujikun (special kanji reading)'),
   ('inf', 'ik', 'word containing irregular kana usage'),
