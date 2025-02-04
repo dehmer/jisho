@@ -14,9 +14,11 @@ const options = {
 const filename = '/Users/dehmer/Public/Data/jp-resources/JMdict'
 const xml = readFileSync(filename, 'utf8')
 const parser = new XMLParser(options)
-const raw = parser.parse(xml).JMdict.entry
-const entries = raw.map(normalize)
+const raw = parser
+  .parse(xml)
+  .JMdict.entry
 
+const entries = raw.map(normalize)
 
 const data = entries.reduce((acc, { sequence, ...entry}) => {
   entry.headword.reduce((acc, headword, idx) => {
