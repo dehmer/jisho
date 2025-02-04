@@ -1,3 +1,4 @@
+## macOS
 say -v \? | grep ja
 
 Anna                de_DE    # Hallo, ich heiße Anna und ich bin eine deutsche Stimme.
@@ -15,3 +16,11 @@ say -v "Kyoko (Enhanced)" "[[emph +]]飲む[[emph -]]。[[slnc 900]]" -o 飲む-
 say -v "Petra (Premium)" "trinken [[slnc 900]]" -o 飲む-002
 say -v "Kyoko (Enhanced)" "飲んだ。 [[slnc 600]] 飲んで。 [[slnc 600]] 飲まない。 [[slnc 600]] 飲まなかった。 [[slnc 600]] 飲みます。 [[slnc 600]] 飲みました。 [[slnc 600]] 飲みません。 [[slnc 600]] 飲みませんでした。 [[slnc 600]]" -o 飲む-003
 say -v "Kyoko (Enhanced)" "[[emph +]]始まる[[emph -]]。 [[slnc 800]] 始まります。 [[slnc 800]] 始まりません。 [[slnc 800]] 始まりました。 [[slnc 800]] 始まりませんでした。 [[slnc 800]] 始まって。 [[slnc 800]]"
+
+## Narakeet
+* Hideaki (male): sNBNUNWIrNd8oRs5ZfG452cFOE-3Uz8fvzxpOSAbQCQ
+* Kaori: (female): ac5-BXEjpBE6VpI2JjJVMZp2j78TLi29u_9E9dnLePk
+* Kenji (male): p7MSiqkLFScDmV6IvJ0ZAbJZhlh-pvsNUh6fe7BAugg
+* [Kuniko] (female):
+* Toshiro:
+* Yuriko (female): EGVFlbFZuqTkVkdJNVqBkmZf1u1HnX5Kkkgfmb8QY8g
