@@ -43,9 +43,10 @@ $(SCRIPT): \
 	pg/table/sentence_rank.sql \
 	pg/data/deck.sql \
 	pg/table/bookmark.sql \
-	pg/view/headword_bookmark.sql \
 	pg/view/kanji_bookmark.sql \
-	pg/post/headword_hidden.sql
+	pg/post/headword_hidden.sql \
+	pg/view/headword_bookmark.sql \
+	pg/view/vocabulary_by_kanji.sql
 	cat $^ > $@
 
 pg/data/kanji.sql \

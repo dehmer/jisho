@@ -24,3 +24,7 @@ say -v "Kyoko (Enhanced)" "[[emph +]]始まる[[emph -]]。 [[slnc 800]] 始ま�
 * [Kuniko] (female):
 * Toshiro:
 * Yuriko (female): EGVFlbFZuqTkVkdJNVqBkmZf1u1HnX5Kkkgfmb8QY8g
+* Akira (male): 8_pr1B2ZPCr195USns5I6fMqU1QTbefMGyflIdFJs2E
+* [Katsumi] (female):
+* Kenichi (male): uVMKo2DuyamBn2AEpRK8Th_JeXWGWmZIhAWj_usxVZ0
+* Tomoka (female): hiSIExLtcAGostKIjACEfRPd2fXMpdx48mLaN1AGSQA
