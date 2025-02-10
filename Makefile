@@ -4,48 +4,34 @@ SCRIPT = $(NAME)--$(VERSION).sql
 
 $(SCRIPT): \
 	pg/table/entity.sql \
-	pg/table/kanji.sql \
+	pg/table/kanji.sql pg/data/kanji.sql \
+	pg/table/kanji_tag.sql pg/data/kanji_tag.sql pg/data/jlpt_shirabe.sql \
+	pg/table/kanji_meaning.sql pg/data/kanji_meaning.sql \
 	pg/view/kanji_joyo.sql \
 	pg/view/kanji_yomi.sql \
-	pg/table/kanji_tag.sql \
-	pg/table/kanji_meaning.sql \
-	pg/table/radical.sql \
-	pg/table/radical_variant.sql \
-	pg/table/sentence.sql \
-	pg/table/translation.sql \
-	pg/table/token.sql \
-	pg/table/headword.sql \
-	pg/table/headword_tag.sql \
-	pg/table/meaning.sql \
-	pg/table/meaning_tag.sql \
-	pg/table/krad.sql \
-	pg/table/deck.sql \
+	pg/kanji/tag_joyo.sql \
+  pg/kanji/tag_jinmeiyo.sql \
+	pg/table/radical.sql pg/data/radical.sql \
+	pg/table/radical_variant.sql pg/data/radical_variant.sql \
+	pg/table/sentence.sql pg/data/sentence.sql \
 	pg/function/fn_kanji.sql \
-	pg/data/kanji.sql \
-	pg/data/kanji_tag.sql \
-	pg/kanji/tag_joyjo.sql \
-	pg/kanji/tag_jinmeiyo.sql \
-	pg/view/headword_common.sql \
-	pg/view/headword_kanji.sql \
-	pg/view/headword_reading.sql \
-	pg/data/jlpt_shirabe.sql \
-	pg/data/kanji_meaning.sql \
-	pg/data/radical.sql \
-	pg/data/radical_variant.sql \
-	pg/data/sentence.sql \
-	pg/data/translation.sql \
-	pg/data/token.sql \
-	pg/data/headword.sql \
-	pg/data/headword_tag.sql \
-	pg/data/meaning.sql \
-	pg/data/meaning_tag.sql \
-	pg/data/krad.sql \
 	pg/table/sentence_rank.sql \
-	pg/data/deck.sql \
-	pg/table/bookmark.sql \
+	pg/table/translation.sql pg/data/translation.sql \
+	pg/table/token.sql pg/data/token.sql \
+	pg/table/headword_reading.sql pg/data/headword_reading.sql \
+	pg/table/headword_kanji.sql pg/data/headword_kanji.sql \
+	pg/table/headword_tag.sql pg/data/headword_tag.sql \
+	pg/table/meaning.sql pg/data/meaning.sql \
+	pg/table/meaning_tag.sql pg/data/meaning_tag.sql \
+	pg/view/headword_hidden.sql pg/post/headword_hidden.sql \
+	pg/view/headword_kana_only.sql pg/post/headword_kana_only.sql \
+	pg/view/restricted_kanji_reading.sql pg/post/headword_restricted.sql \
+	pg/table/headword.sql \
+	pg/table/krad.sql pg/data/krad.sql \
+	pg/table/deck.sql pg/data/deck.sql \
 	pg/view/kanji_bookmark.sql \
-	pg/post/headword_hidden.sql \
 	pg/view/headword_bookmark.sql \
+	pg/view/headword_common.sql \
 	pg/view/vocabulary_by_kanji.sql
 	cat $^ > $@
 
@@ -56,7 +42,8 @@ pg/data/radical.sql \
 pg/data/radical_variant.sql:
 	bin/kanjidic2.js
 
-pg/data/headword.sql \
+pg/data/headword_reading.sql \
+pg/data/headword_kanji.sql \
 pg/data/headword_tag.sql \
 pg/data/meaning.sql \
 pg/data/meaning_tag.sql:

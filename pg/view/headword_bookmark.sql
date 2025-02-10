@@ -3,10 +3,23 @@
 --
 --
 CREATE VIEW headword_bookmark AS
-SELECT DISTINCT headword.*
-FROM   bookmark
-JOIN   headword
-       ON seq_no = (REGEXP_SPLIT_TO_ARRAY(key, '[:/]'))[2]::int
-       AND idx = (REGEXP_SPLIT_TO_ARRAY(key, '[:/]'))[3]::int
-WHERE  position('headword' IN key) <> 0
-AND    NOT hidden;
+SELECT seq_no,
+       idx,
+       reading_txt,
+       kanji_txt,
+       deck_key AS tag_key,
+       deck_value AS tag_value
+FROM   deck
+JOIN   headword USING (reading_txt, kanji_txt)
+WHERE  type = 'vocabulary'
+UNION
+SELECT seq_no,
+       idx,
+       reading_txt,
+       NULL AS kanji_txt,
+       deck_key AS tag_key,
+       deck_value AS tag_value
+FROM   deck
+JOIN   headword USING (reading_txt)
+WHERE  deck.kanji_txt IS NULL
+AND    type = 'vocabulary';

@@ -22,11 +22,13 @@ const entries = (type, file) => {
 
 	return columns
 	  .map(([kanji, reading]) => [ kanji.trim() ? kanji : '\\N', reading])
+		// In case there are multiple readings we hard pick the first.
+		// There is now way to be smart about the selection.
+		.map(([kanji, reading]) => [kanji, reading.split(', ')[0]])
 		.map(([kanji, reading]) => [type, key, value, kanji, reading].join('\t'))
 }
 
 ;(async () => {
-
 	const lines = await Object.entries(sources).reduce(async (acc, [type, directory]) => {
 		const files = await glob(`${directory}/*.tsv`)
 		return files.reduce((acc, file) => {

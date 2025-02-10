@@ -21,9 +21,22 @@ const raw = parser
 const entries = raw.map(normalize)
 
 const data = entries.reduce((acc, { sequence, ...entry}) => {
-  entry.headword.reduce((acc, headword, idx) => {
-    if (headword.length === 3) acc.headword.push([sequence, idx, ...R.take(2, headword), '\\N'])
-    else acc.headword.push([sequence, idx, ...R.take(3, headword)])
+  entry.headword.reduce((acc, [type, ...headword], idx) => {
+    // Split reading and kanji into separate staging areas.
+
+    if (type === 'reading') {
+      // Handle optional reading restriction:
+      const tuple =
+        headword.length === 2
+          ? [sequence, idx, headword[0], '\\N'] // no restriction
+          : [sequence, idx, ...R.take(2, headword)]
+
+      acc.headword_reading.push(tuple)
+    } else if (type === 'kanji') {
+      acc.headword_kanji.push([sequence, idx, headword[0]])
+    }
+
+    // Push tags for both reading and kanji:
     R.last(headword).forEach(tag => acc.headword_tag.push([sequence, idx, ...tag.split(':')]))
     return acc
   }, acc)
@@ -40,13 +53,21 @@ const data = entries.reduce((acc, { sequence, ...entry}) => {
   }, acc)
 
   return acc
-}, { headword: [], headword_tag: [], meaning: [], meaning_tag: [] })
+}, { headword_reading: [], headword_kanji: [], headword_tag: [], meaning: [], meaning_tag: [] })
 
 
-const headword = () => [
+const headword_reading = () => [
   '',
-  '\\COPY headword FROM STDIN',
-  ...data.headword.map(join('\t')),
+  '\\COPY headword_reading FROM STDIN',
+  ...data.headword_reading.map(join('\t')),
+  '\\.',
+  ''
+].join('\n')
+
+const headword_kanji = () => [
+  '',
+  '\\COPY headword_kanji FROM STDIN',
+  ...data.headword_kanji.map(join('\t')),
   '\\.',
   ''
 ].join('\n')
@@ -76,7 +97,8 @@ const meaning_tag = () => [
 ].join('\n')
 
 const files = {
-  headword,
+  headword_reading,
+  headword_kanji,
   headword_tag,
   meaning,
   meaning_tag,
