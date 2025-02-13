@@ -9,7 +9,7 @@ const sources = {
 }
 
 const entries = (type, file) => {
-	const name = path.basename(file, '.tsv')
+	const name = path.basename(file, '.txt')
 	const [key, value] = name.split('#')
 	const entries = readFileSync(file, 'utf8')
 	const lines = entries
@@ -30,7 +30,7 @@ const entries = (type, file) => {
 
 ;(async () => {
 	const lines = await Object.entries(sources).reduce(async (acc, [type, directory]) => {
-		const files = await glob(`${directory}/*.tsv`)
+		const files = await glob(`${directory}/*.txt`)
 		return files.reduce((acc, file) => {
 			return acc.concat(entries(type, file))
 		}, await acc)
