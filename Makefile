@@ -11,6 +11,7 @@ $(SCRIPT): \
 	pg/view/kanji_yomi.sql \
 	pg/kanji/tag_joyo.sql \
   pg/kanji/tag_jinmeiyo.sql \
+	pg/table/kanken.sql pg/data/kanken.sql \
 	pg/table/radical.sql pg/data/radical.sql \
 	pg/table/radical_variant.sql pg/data/radical_variant.sql \
 	pg/table/sentence.sql pg/data/sentence.sql \
@@ -30,6 +31,7 @@ $(SCRIPT): \
 	pg/table/krad.sql pg/data/krad.sql \
 	pg/table/deck.sql pg/data/deck.sql \
 	pg/view/kanji_bookmark.sql \
+	pg/view/kanji_rank.sql \
 	pg/view/headword_bookmark.sql \
 	pg/view/headword_common.sql \
 	pg/view/vocabulary_by_kanji.sql
@@ -63,6 +65,9 @@ pg/data/krad.sql:
 
 pg/data/deck.sql:
 	bin/deck.js
+
+pg/data/kanken.sql:
+	bin/kanken.js
 
 .PHONY: clean
 clean:
