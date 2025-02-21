@@ -4,7 +4,6 @@
 --
 CREATE TABLE kanji (
   literal text UNIQUE PRIMARY KEY,
-  rank integer NOT NULL,
   radical integer,
   strokes integer,
   grade integer,

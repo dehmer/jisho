@@ -12,7 +12,6 @@ const dictionary = entries.reduce((acc, { literal, ...rest }) => {
 const kanji = () => {
   const lines = entries.map(entry => [
     entry.literal,
-    entry.rank,
     entry.radical,
     entry.strokes,
     entry.grade ?? '\\N',

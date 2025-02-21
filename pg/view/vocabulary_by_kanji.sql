@@ -16,5 +16,4 @@ words AS (
 )
 SELECT literal, words
 FROM   words
-JOIN   kanji USING (literal)
-ORDER  BY rank;
+JOIN   kanji USING (literal);

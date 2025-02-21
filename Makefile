@@ -3,19 +3,19 @@ VERSION = $(shell cat .version)
 SCRIPT = $(NAME)--$(VERSION).sql
 
 $(SCRIPT): \
+	pg/function/fn_kanji.sql \
 	pg/table/entity.sql \
+	pg/table/kanken.sql pg/data/kanken.sql \
 	pg/table/kanji.sql pg/data/kanji.sql \
-	pg/table/kanji_tag.sql pg/data/kanji_tag.sql pg/data/jlpt_shirabe.sql \
+	pg/table/kanji_tag.sql pg/data/kanji_tag.sql pg/data/jlpt_shirabe.sql pg/post/kanji.sql\
 	pg/table/kanji_meaning.sql pg/data/kanji_meaning.sql \
 	pg/view/kanji_joyo.sql \
 	pg/view/kanji_yomi.sql \
 	pg/kanji/tag_joyo.sql \
   pg/kanji/tag_jinmeiyo.sql \
-	pg/table/kanken.sql pg/data/kanken.sql \
 	pg/table/radical.sql pg/data/radical.sql \
 	pg/table/radical_variant.sql pg/data/radical_variant.sql \
 	pg/table/sentence.sql pg/data/sentence.sql \
-	pg/function/fn_kanji.sql \
 	pg/table/sentence_rank.sql \
 	pg/table/translation.sql pg/data/translation.sql \
 	pg/table/token.sql pg/data/token.sql \
@@ -31,7 +31,6 @@ $(SCRIPT): \
 	pg/table/krad.sql pg/data/krad.sql \
 	pg/table/deck.sql pg/data/deck.sql \
 	pg/view/kanji_bookmark.sql \
-	pg/view/kanji_rank.sql \
 	pg/view/headword_bookmark.sql \
 	pg/view/headword_common.sql \
 	pg/view/vocabulary_by_kanji.sql
@@ -73,3 +72,9 @@ pg/data/kanken.sql:
 clean:
 	rm -f pg/data/*.sql
 	rm -f ${SCRIPT}
+
+.PHONY: install
+install:
+	dropdb --if-exists jisho
+	createdb jisho
+	psql -d jisho -1qf jisho--0.0.11.sql

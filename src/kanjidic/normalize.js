@@ -13,13 +13,6 @@ const flattenMeaning = require('./_flattenMeaning')
 const filterRadical = require('./_filterRadical')
 const normalizeRadicalName = require('./_normalizeRadicalName')
 
-const rank = require('./_rank')
-
-const calculateRank = character => {
-  character.rank = rank(character)
-  return character
-}
-
 const normalizations = [
   normalizeCodepoint,
   normalizeRadical,
@@ -34,8 +27,7 @@ const normalizations = [
   filterReading,
   flattenMeaning,
   filterRadical,
-  normalizeRadicalName,
-  calculateRank
+  normalizeRadicalName
 ]
 
 const normalize = character =>

@@ -3,7 +3,7 @@
 --
 --
 CREATE TABLE kanken (
-  literal text,
-  class text,
-  index int
+  literal text UNIQUE PRIMARY KEY,
+  level text,
+  idx int
 );
