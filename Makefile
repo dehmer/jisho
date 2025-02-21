@@ -33,7 +33,8 @@ $(SCRIPT): \
 	pg/view/kanji_bookmark.sql \
 	pg/view/headword_bookmark.sql \
 	pg/view/headword_common.sql \
-	pg/view/vocabulary_by_kanji.sql
+	pg/view/vocabulary_by_kanji.sql \
+	pg/view/kanji_by_component.sql
 	cat $^ > $@
 
 pg/data/kanji.sql \
