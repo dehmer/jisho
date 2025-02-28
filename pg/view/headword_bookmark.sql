@@ -3,22 +3,12 @@
 --
 --
 CREATE VIEW headword_bookmark AS
-SELECT    seq_no,
-          idx,
-          reading_txt,
-          kanji_txt,
-          deck_key AS tag_key,
-          deck_value AS tag_value
+SELECT    seq_no, idx, reading_txt, kanji_txt
 FROM      deck
 JOIN      headword USING (reading_txt, kanji_txt)
 WHERE     type = 'vocabulary'
 UNION
-SELECT    seq_no,
-          idx,
-          reading_txt,
-          NULL AS kanji_txt,
-          deck_key AS tag_key,
-          deck_value AS tag_value
+SELECT    seq_no, idx, reading_txt, NULL AS kanji_txt
 FROM      deck
 JOIN      headword USING (reading_txt)
 LEFT JOIN headword_kana_only USING (seq_no, idx)

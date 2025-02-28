@@ -6,6 +6,7 @@ $(SCRIPT): \
 	pg/function/fn_kanji.sql \
 	pg/table/entity.sql \
 	pg/table/kanken.sql pg/data/kanken.sql \
+	pg/table/njecd_meaning.sql \
 	pg/table/kanji.sql pg/data/kanji.sql \
 	pg/table/kanji_tag.sql pg/data/kanji_tag.sql pg/data/jlpt_shirabe.sql pg/post/kanji.sql\
 	pg/table/kanji_meaning.sql pg/data/kanji_meaning.sql \
@@ -30,11 +31,15 @@ $(SCRIPT): \
 	pg/table/headword.sql \
 	pg/table/krad.sql pg/data/krad.sql \
 	pg/table/deck.sql pg/data/deck.sql \
-	pg/view/kanji_bookmark.sql \
 	pg/view/headword_bookmark.sql \
+	pg/view/kanji_bookmark.sql \
 	pg/view/headword_common.sql \
 	pg/view/vocabulary_by_kanji.sql \
-	pg/view/kanji_by_component.sql
+	pg/view/kanji_by_component.sql \
+	pg/view/kanji_info.sql \
+	pg/view/kanji_flashcard.sql \
+	pg/view/meanings_ger.sql \
+	pg/view/headword_by_kanken.sql
 	cat $^ > $@
 
 pg/data/kanji.sql \

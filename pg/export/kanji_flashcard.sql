@@ -1,0 +1,1 @@
+COPY (SELECT * FROM kanji_flashcard) TO STDOUT NULL '';

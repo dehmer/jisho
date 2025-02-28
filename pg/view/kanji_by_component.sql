@@ -11,17 +11,17 @@ WITH kanji AS (
 	ORDER BY 1, 2
 ), parts AS (
 	SELECT DISTINCT
-           radical,
+           component,
            kanji.literal,
            value AS meaning
 	FROM   kanji
 	JOIN   krad USING (literal)
-	JOIN   headword_kanji ON headword_kanji.kanji_txt = radical
+	JOIN   headword_kanji ON headword_kanji.kanji_txt = component
 	JOIN   kanji_meaning ON kanji_meaning.literal = headword_kanji.kanji_txt
-	WHERE  krad.literal <> krad.radical
+	WHERE  krad.literal <> krad.component
 	AND    LANGUAGE = 'en'
 	ORDER  BY 1, 2
 )
-SELECT radical, array_to_string(array_agg(literal), ', '), meaning
+SELECT component, array_to_string(array_agg(literal), ', '), meaning
 FROM   parts
-GROUP  BY radical, meaning;
+GROUP  BY component, meaning;
