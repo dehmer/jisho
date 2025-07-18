@@ -3,3 +3,6 @@ data/JMdict.json
 .DS_Store
 node_modules/
 jisho--*.sql
+*.aux
+*.log
+*.gz

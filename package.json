@@ -10,11 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "@enjoyjs/node-mecab": "^0.5.0",
-    "fast-xml-parser": "^4.3.2",
+    "fast-xml-parser": "^5.2.5",
     "glob": "^11.0.0",
     "minimist": "^1.2.8",
     "pg": "^8.13.1",
     "ramda": "^0.29.1",
-    "svgo": "^3.3.2"
+    "svg-path-bbox": "^2.1.0",
+    "svgpath": "^2.6.0"
   }
 }

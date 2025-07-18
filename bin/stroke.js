@@ -1,0 +1,78 @@
+#!/usr/bin/env node
+const { readFileSync, writeFileSync } = require('node:fs')
+const path = require('node:path')
+const R = require('ramda')
+const { glob } = require('glob')
+const { XMLParser } = require('fast-xml-parser')
+const { svgPathBbox } = require('svg-path-bbox')
+const svgpath = require('svgpath')
+
+const parser = new XMLParser({
+  ignoreAttributes: false,
+  attributeNamePrefix: ''
+})
+
+/*
+<svg xmlns="http://www.w3.org/2000/svg" width="109" height="109" viewBox="0 0 109 109">
+</svg>
+*/
+
+/**
+ *
+ */
+const filenames = async (filepath) => {
+  const options = {
+    ignore: {
+      // Ignore variants:
+      ignored: p => !/^0[0-9a-f]{4}\.svg$/.test(p.name)
+    }
+  }
+  // const files = await glob(filepath + '/05ae6.*', options)
+  // const files = await glob(filepath + '/06765.*', options)
+  return glob(filepath + '/*.*', options)
+}
+
+/**
+ *
+ */
+const parse = filename => {
+  const basename = path.basename(filename, '.svg').substring(1)
+  const literal = String.fromCharCode(parseInt(basename, 16))
+  const content = readFileSync(filename, 'utf8')
+  return [literal, parser.parse(content).svg]
+}
+
+/**
+ *
+ */
+const extractPaths = ([literal, arg], acc = []) => {
+  if (Array.isArray(arg)) arg.forEach(x => extractPaths([literal, x], acc))
+  else {
+    // Note: Traversal does not neccessarily result in correct stroke order.
+    if (arg.path) extractPaths([literal, arg.path], acc)
+    if (arg.g) extractPaths([literal, arg.g], acc)
+    if (arg.d) {
+      const id = parseInt(arg.id.match(/^kvg:[0-9a-f]{5}-s(\d+)/)[1])
+      const normalized = svgpath(arg.d).abs().round(2).toString()
+      const bbox = svgPathBbox(normalized)
+      acc.push([literal, id, ...bbox, normalized])
+    }
+  }
+
+  return acc
+}
+
+;(async () => {
+  const filepath = '/Users/dehmer/Public/Data/jp-resources/kanjivg'
+  const files = await filenames(filepath)
+  const lines = files.flatMap(R.compose(extractPaths, parse))
+
+  const content =	[
+    '\\COPY stroke FROM STDIN',
+    ...lines.map(xs => xs.join('\t')),
+    '\\.',
+    ''
+  ].join('\n')
+
+  writeFileSync(`pg/data/stroke.sql`, content)
+})()

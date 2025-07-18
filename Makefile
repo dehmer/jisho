@@ -31,6 +31,7 @@ $(SCRIPT): \
 	pg/table/headword.sql \
 	pg/table/krad.sql pg/data/krad.sql \
 	pg/table/deck.sql pg/data/deck.sql \
+	pg/table/stroke.sql pg/data/stroke.sql \
 	pg/view/headword_bookmark.sql \
 	pg/view/kanji_bookmark.sql \
 	pg/view/headword_common.sql \
@@ -73,6 +74,9 @@ pg/data/deck.sql:
 
 pg/data/kanken.sql:
 	bin/kanken.js
+
+pg/data/stroke.sql:
+	bin/stroke.js
 
 .PHONY: clean
 clean:

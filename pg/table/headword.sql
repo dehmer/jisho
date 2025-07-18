@@ -27,7 +27,6 @@ WHERE  NOT headword_reading.hidden
 AND    NOT headword_reading.restricted
 AND    NOT headword_reading.kana_only
 AND    NOT headword_kanji.hidden
-AND    NOT headword_kanji.restricted
 AND    NOT headword_kanji.kana_only;
 
 --
