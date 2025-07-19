@@ -5,7 +5,7 @@ const R = require('ramda')
 const { glob } = require('glob')
 const { XMLParser } = require('fast-xml-parser')
 const { svgPathBbox } = require('svg-path-bbox')
-const svgpath = require('svgpath')
+const SVGPath = require('../src/svgpath')
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -27,8 +27,7 @@ const filenames = async (filepath) => {
       ignored: p => !/^0[0-9a-f]{4}\.svg$/.test(p.name)
     }
   }
-  // const files = await glob(filepath + '/05ae6.*', options)
-  // const files = await glob(filepath + '/06765.*', options)
+
   return glob(filepath + '/*.*', options)
 }
 
@@ -53,7 +52,16 @@ const extractPaths = ([literal, arg], acc = []) => {
     if (arg.g) extractPaths([literal, arg.g], acc)
     if (arg.d) {
       const id = parseInt(arg.id.match(/^kvg:[0-9a-f]{5}-s(\d+)/)[1])
-      const normalized = svgpath(arg.d).abs().round(2).toString()
+      const precision = 2
+      const segmentCount = 8
+      const normalized = R.compose(
+        SVGPath.toString,
+        SVGPath.round(precision),
+        SVGPath.flatten(segmentCount),
+        SVGPath.abs,
+        SVGPath.of
+      )(arg.d)
+
       const bbox = svgPathBbox(normalized)
       acc.push([literal, id, ...bbox, normalized])
     }
