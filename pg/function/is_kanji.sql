@@ -1,0 +1,11 @@
+
+--
+--
+--
+CREATE OR REPLACE FUNCTION is_kanji(character)
+RETURNS boolean AS
+$$
+  SELECT $1 ~ '[\x3400-\x4DB5\x4E00-\x9FCB\xF900-\xFA6A]'
+$$
+LANGUAGE sql
+IMMUTABLE STRICT;

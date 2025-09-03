@@ -9,18 +9,26 @@ const dictionary = entries.reduce((acc, { literal, ...rest }) => {
   return acc
 }, {})
 
+const onyomi = entry => {
+    // 中: Add possibly missing onyomi ジュウ:
+  if (entry.literal !== '中') return entry.onyomi
+  else if (entry.onyomi.includes('ジュウ')) return entry.onyomi
+  else return entry.onyomi + ', ジュウ'
+}
+
 const kanji = () => {
   const lines = entries.map(entry => [
-    entry.literal,
-    entry.radical,
-    entry.strokes,
-    entry.grade ?? '\\N',
-    entry.jlpt ?? '\\N',
-    entry.freq ?? '\\N',
-    entry.onyomi ?? '\\N',
-    entry.kunyomi ?? '\\N',
-    entry.nanori ?? '\\N'
-  ].join('\t'))
+      entry.literal,
+      entry.radical,
+      entry.strokes,
+      entry.grade ?? '\\N',
+      entry.jlpt ?? '\\N',
+      entry.freq ?? '\\N',
+      onyomi(entry) ?? '\\N',
+      entry.kunyomi ?? '\\N',
+      entry.nanori ?? '\\N'
+    ].join('\t')
+  )
 
   return [
     '',

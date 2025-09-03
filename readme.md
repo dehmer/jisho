@@ -4,3 +4,15 @@ Command line binaries for MeCab part-of-speech and morphological analyzer and `i
 ```
   $ sudo port install mecab-utf8 +ipadic
 ```
+
+#### PostgREST
+```sh
+# Homebrew
+> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+> echo >> /Users/dehmer/.zprofile
+> echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/dehmer/.zprofile
+> eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# PostgREST
+> brew install postgrest
+```
