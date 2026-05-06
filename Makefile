@@ -3,6 +3,7 @@ VERSION = $(shell cat .version)
 SCRIPT = $(NAME)--$(VERSION).sql
 
 $(SCRIPT): \
+	pg/collation/und-u-ka-shifted-kn.sql \
 	pg/function/fn_kanji.sql \
 	pg/function/is_hiragana.sql \
 	pg/function/is_kanji.sql \
@@ -16,10 +17,11 @@ $(SCRIPT): \
 	pg/table/kanji_reading.sql \
 	pg/view/kanji_joyo.sql \
 	pg/view/kanji_yomi.sql \
-	pg/kanji/tag_joyo.sql \
-  pg/kanji/tag_jinmeiyo.sql \
+	pg/post/tag_joyo.sql \
+  pg/post/tag_jinmeiyo.sql \
 	pg/view/kanji_kunyomi.sql pg/view/kanji_onyomi.sql \
 	pg/table/kanken_reading.sql pg/post/kanji_reading.sql pg/post/kanken_reading_10.sql pg/post/kanken_reading.sql \
+	pg/post/kanken_reference.sql \
 	pg/table/radical.sql pg/data/radical.sql \
 	pg/table/radical_variant.sql pg/data/radical_variant.sql \
 	pg/table/sentence.sql pg/data/sentence.sql \
