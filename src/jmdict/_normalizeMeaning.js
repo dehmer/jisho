@@ -1,7 +1,7 @@
 import { asArray } from '../array.js'
-const { asTags } = require('./tag')
+import { asTags } from './tag.js'
 
-module.exports = entry => {
+export default entry => {
   const { sense, ...rest } = entry
 
   const fns = {
@@ -47,7 +47,6 @@ module.exports = entry => {
         return acc
       }, { ...meaning, tags })
   }
-
 
   return {
     ...rest,

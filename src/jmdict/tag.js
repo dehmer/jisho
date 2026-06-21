@@ -1,22 +1,16 @@
 import { asArray } from '../array.js'
 
-const trimEntity = s => s.replaceAll('&', '').replaceAll(';', '')
+export const trimEntity = s => s.replaceAll('&', '').replaceAll(';', '')
 
-const asTags =
+export const asTags =
 	(xs, tag) =>
 			(xs ? asArray(xs) : [])
 				.map(trimEntity)
 				.map(x => `${tag}:${x}`)
 
 
-const extractTags =
+export const extractTags =
 	(tags, element) =>
 		tags.reduce((acc, [key, prefix]) => {
 			return acc.concat(asTags(element[key], prefix))
 		}, [])
-
-module.exports = {
-	trimEntity,
-	asTags,
-	extractTags
-}

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const path = require('node:path')
-const { readFileSync, writeFileSync } = require('node:fs')
-const { glob } = require('glob')
+import path from 'node:path'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { glob } from 'glob'
 
 const sources = {
 	vocabulary: '/Users/dehmer/Public/Data/jp-resources/vocabulary',

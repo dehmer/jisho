@@ -1,9 +1,4 @@
-const R = require('ramda')
+import * as R from 'ramda'
 
-const split = R.curry((delimiter, s) => s.split(delimiter))
-const join = separator => xs => xs.join(separator)
-
-module.exports = {
-	split,
-	join
-}
+export const split = R.curry((delimiter, s) => s.split(delimiter))
+export const join = separator => xs => xs.join(separator)

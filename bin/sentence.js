@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const fs = require('node:fs')
-const { split, join } = require('../src/string')
+import fs from 'node:fs'
+import { split, join } from '../src/string.js'
 
 const sentence = () => {
   const inputs = [

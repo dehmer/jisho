@@ -1,12 +1,12 @@
 import { asArray } from '../array.js'
-const { extractTags } = require('./tag')
+import { extractTags } from './tag.js'
 
 const tags = kanji => extractTags([
   ['ke_inf', 'inf'],
   ['ke_pri', 'rank']
 ], kanji)
 
-module.exports = entry => {
+export default entry => {
   if (!entry.k_ele) return entry
 
   // k_ele (keb, ke_inf*, ke_pri*)

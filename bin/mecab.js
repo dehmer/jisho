@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const { readFileSync, createWriteStream } = require('node:fs')
-const { split } = require('../src/string')
-const mecab = require('../src/mecab')
+import { readFileSync, createWriteStream } from 'node:fs'
+import { split } from '../src/string.js'
+import { mecab } from '../src/mecab.js'
 
 const filename = '/Users/dehmer/Public/Data/jp-resources/sentences/jpn-2023-11-11.tsv'
 const input = readFileSync(filename, 'utf8')

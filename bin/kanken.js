@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const { readFileSync, writeFileSync } = require('node:fs')
-const { glob } = require('glob')
+import { readFileSync, writeFileSync } from 'node:fs'
+import { glob } from 'glob'
 
 const classes = {
 	1: '1',

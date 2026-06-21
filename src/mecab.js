@@ -1,5 +1,5 @@
-const { spawn } = require('node:child_process')
-const { EventEmitter } = require('node:events')
+import { spawn } from 'node:child_process'
+import { EventEmitter } from 'node:events'
 
 const lines = s =>
 	s
@@ -9,7 +9,7 @@ const lines = s =>
 		.map(([surface, feature], idx) => [idx, surface, ...feature.split(',')])
 		.map(xs => xs.length === 9 ? [...xs, '\\N', '\\N'] : xs)
 
-const mecab = () => {
+export const mecab = () => {
 	const emitter = new EventEmitter()
 	let acc = Buffer.alloc(0)
 	const mecab = spawn('mecab')
@@ -34,5 +34,3 @@ const mecab = () => {
 		analyze
 	}
 }
-
-module.exports = mecab

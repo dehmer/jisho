@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { readFileSync, writeFileSync } = require('fs')
+import { readFileSync, writeFileSync } from 'node:fs'
 
 const files = {
   N5: readFileSync('/Users/dehmer/Public/Data/jp-resources/jlpt_shirabe/N5.tsv', 'utf8'),

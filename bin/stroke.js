@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-const { readFileSync, writeFileSync } = require('node:fs')
-const path = require('node:path')
-const R = require('ramda')
-const { glob } = require('glob')
-const { XMLParser } = require('fast-xml-parser')
-const { svgPathBbox } = require('svg-path-bbox')
-const SVGPath = require('../src/svgpath')
+import { readFileSync, writeFileSync } from 'node:fs'
+import path from 'node:path'
+import * as R from 'ramda'
+import { glob } from 'glob'
+import { XMLParser } from 'fast-xml-parser'
+import { svgPathBbox } from 'svg-path-bbox'
+import SVGPath from '../src/svgpath.js'
 
 const parser = new XMLParser({
   ignoreAttributes: false,

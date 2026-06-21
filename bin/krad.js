@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { readFileSync, writeFileSync } = require('node:fs')
+import { readFileSync, writeFileSync } from 'node:fs'
 
 const filename = '/Users/dehmer/Public/Data/jp-resources/kradfile-u.txt'
 const lines = readFileSync(filename, 'utf8')

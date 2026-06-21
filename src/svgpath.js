@@ -1,6 +1,6 @@
-const svgpath = require('svgpath')
-const { Bezier } = require("bezier-js")
-const R = require('ramda')
+import svgpath from 'svgpath'
+import { Bezier } from "bezier-js"
+import * as R from 'ramda'
 
 const of = d => svgpath(d)
 const abs = path => path.abs()
@@ -40,7 +40,7 @@ const flatten = n => path => {
   return path
 }
 
-module.exports = {
+export default {
   of,
   abs,
   unshort,

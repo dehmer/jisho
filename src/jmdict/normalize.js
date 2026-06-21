@@ -1,7 +1,7 @@
-const normalizeSequence = require('./_normalizeSequence')
-const normalizeKanji = require('./_normalizeKanji')
-const normalizeReading = require('./_normalizeReading')
-const normalizeMeaning = require('./_normalizeMeaning')
+import normalizeSequence from './_normalizeSequence.js'
+import normalizeKanji from './_normalizeKanji.js'
+import normalizeReading from './_normalizeReading.js'
+import normalizeMeaning from './_normalizeMeaning.js'
 
 const normalizations = [
 	normalizeSequence,
@@ -11,7 +11,5 @@ const normalizations = [
 ]
 
 // entry (ent_seq, k_ele*, r_ele+, sense+)
-const normalize = entry =>
+export const normalize = entry =>
   normalizations.reduce((acc, fn) => fn(acc), entry)
-
-module.exports = normalize

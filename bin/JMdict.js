@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-const { readFileSync, writeFileSync } = require('fs')
-const { XMLParser } = require('fast-xml-parser')
-const R = require('ramda')
-const normalize = require('../src/jmdict/normalize')
-const { join } = require('../src/string')
+import { readFileSync, writeFileSync } from 'node:fs'
+import { XMLParser } from 'fast-xml-parser'
+import * as R from 'ramda'
+import { normalize } from '../src/jmdict/normalize.js'
+import { join } from '../src/string.js'
 
 const options = {
   ignoreAttributes: false,
