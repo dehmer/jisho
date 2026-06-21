@@ -2,6 +2,7 @@
 ## v0.13.0 (June 21 2026)
 * Don't parse tag values from kanjidic2.xml to preserve exact codepoint/lookup values
 * New view `kanji_jinmeiyo` (grade 9 and 10)
+* New table `kana` for hiragana, katakana and sub-classes (dakuten, etc.)
 
 ## v0.11.0 (September 3, 2025)
 * Converted VIEW kanji_reading to TABLE

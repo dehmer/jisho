@@ -41,6 +41,7 @@ $(SCRIPT): \
 	pg/table/krad.sql pg/data/krad.sql \
 	pg/table/deck.sql pg/data/deck.sql \
 	pg/table/stroke.sql pg/data/stroke.sql \
+	pg/table/kana.sql pg/post/kana.sql \
 	pg/view/headword_bookmark.sql \
 	pg/view/kanji_bookmark.sql \
 	pg/view/headword_common.sql \
