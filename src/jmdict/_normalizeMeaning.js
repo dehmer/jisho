@@ -1,4 +1,4 @@
-const { asArray } = require('../array')
+import { asArray } from '../array.js'
 const { asTags } = require('./tag')
 
 module.exports = entry => {

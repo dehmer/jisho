@@ -3,7 +3,7 @@
  * NOTE: Although multiple rmgroup are possible in theory,
  * each entry only has a single rmgroup (at most).
  */
-module.exports = character => {
+export default character => {
 
   if (!character.reading_meaning) return character
 

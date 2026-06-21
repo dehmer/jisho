@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const fs = require('node:fs')
-const parse = require('../src/kanjidic/parse')
+import fs from 'node:fs'
+import { parse } from '../src/kanjidic/parse.js'
 
 const filename = '/Users/dehmer/Public/Data/jp-resources/kanjidic2.xml'
 const entries = parse(filename)

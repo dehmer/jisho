@@ -1,4 +1,4 @@
-const { asArray } = require('../array')
+import { asArray } from '../array.js'
 
 const trimEntity = s => s.replaceAll('&', '').replaceAll(';', '')
 

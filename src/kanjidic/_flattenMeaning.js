@@ -2,7 +2,7 @@
 /**
  *
  */
-module.exports = character => {
+export default character => {
   const { meaning, ...flattened } = character
   const meanings = Object.entries(meaning || {})
   return meanings.reduce((acc, [lang, meanings]) => {

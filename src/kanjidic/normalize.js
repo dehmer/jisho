@@ -1,17 +1,17 @@
-const normalizeCodepoint = require('./_normalizeCodepoint')
-const normalizeRadical = require('./_normalizeRadical')
-const flattenMiscellaneous = require('./_flattenMiscellaneous')
-const normalizeReference = require('./_normalizeReference')
-const flattenReadingMeaning = require('./_flattenReadingMeaning')
-const normalizeReading = require('./_normalizeReading')
-const normalizeMeaning = require('./_normalizeMeaning')
-const normalizeVariant = require('./_normalizeVariant')
-const normalizeQuery = require('./_normalizeQuery')
-const normalizeStrokes = require('./_normalizeStrokes')
-const filterReading = require('./_filterReading')
-const flattenMeaning = require('./_flattenMeaning')
-const filterRadical = require('./_filterRadical')
-const normalizeRadicalName = require('./_normalizeRadicalName')
+import normalizeCodepoint from './_normalizeCodepoint.js'
+import normalizeRadical from './_normalizeRadical.js'
+import flattenMiscellaneous from './_flattenMiscellaneous.js'
+import normalizeReference from './_normalizeReference.js'
+import flattenReadingMeaning from './_flattenReadingMeaning.js'
+import normalizeReading from './_normalizeReading.js'
+import normalizeMeaning from './_normalizeMeaning.js'
+import normalizeVariant from './_normalizeVariant.js'
+import normalizeQuery from './_normalizeQuery.js'
+import normalizeStrokes from './_normalizeStrokes.js'
+import filterReading from './_filterReading.js'
+import flattenMeaning from './_flattenMeaning.js'
+import filterRadical from './_filterRadical.js'
+import normalizeRadicalName from './_normalizeRadicalName.js'
 
 const normalizations = [
   normalizeCodepoint,
@@ -30,7 +30,6 @@ const normalizations = [
   normalizeRadicalName
 ]
 
-const normalize = character =>
-  normalizations.reduce((acc, fn) => fn(acc), character)
-
-module.exports = normalize
+export const normalize =
+  character =>
+    normalizations.reduce((acc, fn) => fn(acc), character)

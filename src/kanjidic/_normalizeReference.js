@@ -1,9 +1,9 @@
-const { asArray } = require('../array')
+import { asArray } from '../array.js'
 
 /**
  *
  */
-module.exports = character => {
+export default character => {
   const { dic_number, ...rest } = character
 
   if (!dic_number) return rest

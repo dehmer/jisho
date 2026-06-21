@@ -3,12 +3,12 @@
  * Reference: https://www.natubunko.net/mame/kotoba03.html#b17
  * Reference: https://www.sljfaq.org/afaq/radical-names.html#radicals-in-unicode
  */
-const additionalNames = require('./radicalNames.json')
+import additionalNames from './radicalNames.json' with { type: 'json' }
 
 /**
  * Join multiple radical names or use single radical name.
  */
-module.exports = character => {
+export default character => {
   const { rad_name, ...rest } = character
 
   if (!rad_name && additionalNames[character.literal]) {

@@ -1,4 +1,4 @@
-const { asArray } = require('../array')
+import { asArray } from '../array.js'
 const { extractTags } = require('./tag')
 
 // Flatten ke_inf and ke_pri into array of prefixed values.

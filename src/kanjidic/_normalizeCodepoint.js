@@ -2,7 +2,7 @@
 /**
  *
  */
-module.exports = character => {
+export default character => {
   const { codepoint, ...rest } = character
 
   // NOTE: ucs = unicode code point

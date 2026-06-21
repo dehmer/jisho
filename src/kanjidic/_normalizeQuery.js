@@ -1,9 +1,9 @@
-const { asArray } = require('../array')
+import { asArray } from '../array.js'
 
 /**
  *
  */
-module.exports = character => {
+export default character => {
   const { query_code, ...rest } = character
   const codes = asArray(query_code.q_code)
   return codes.reduce((acc, q_code) => {

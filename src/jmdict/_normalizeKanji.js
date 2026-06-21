@@ -1,4 +1,4 @@
-const { asArray } = require('../array')
+import { asArray } from '../array.js'
 const { extractTags } = require('./tag')
 
 const tags = kanji => extractTags([

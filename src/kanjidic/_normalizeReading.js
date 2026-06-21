@@ -2,7 +2,7 @@
 /**
  *
  */
-module.exports = character => {
+export default character => {
   const { reading, ...rest } = character
 
   if (!reading) return rest
