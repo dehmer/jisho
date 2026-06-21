@@ -16,6 +16,7 @@ $(SCRIPT): \
 	pg/table/kanji_meaning.sql pg/data/kanji_meaning.sql \
 	pg/table/kanji_reading.sql \
 	pg/view/kanji_joyo.sql \
+	pg/view/kanji_jinmeiyo.sql \
 	pg/view/kanji_yomi.sql \
 	pg/post/tag_joyo.sql \
   pg/post/tag_jinmeiyo.sql \
